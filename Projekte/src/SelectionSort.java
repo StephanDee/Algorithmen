@@ -23,7 +23,7 @@ public class SelectionSort {
         return arr;
     }
 
-        public static void main(String[] args){
+        public static void main(String[] args) throws Exception {
             int[] arr1 = {1,5,4,3,2};
             int[] arr2 = ArraySort(arr1);
             for (int i:arr2){
