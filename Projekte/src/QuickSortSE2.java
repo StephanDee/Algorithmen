@@ -2,7 +2,7 @@ import java.util.Arrays;
 
 /**
  * Created by Stephan D on 12.10.2016.
- *
+ * <p>
  * Software Engeneering 2.
  * Sorts an array using the quicksort algorithm.
  */
@@ -10,7 +10,7 @@ public class QuickSortSE2 {
 
     public static int[] numbers;// The array to sort
 
-    public static void sort(int[] values) {
+    public static void sort(final int[] values) {
 
         // check for empty or null array
         if (values == null || values.length == 0) {
@@ -21,7 +21,7 @@ public class QuickSortSE2 {
         quicksort(0, values.length - 1);
     }
 
-    private static void quicksort(int low, int high) {
+    private static void quicksort(final int low,final int high) {
         int i = low, j = high;
         // Get the pivot element from the middle of the list
         int pivot = numbers[low + (high - low) / 2];
@@ -63,13 +63,13 @@ public class QuickSortSE2 {
      * @param j Another number
      */
     // TODO: Is there a better way to do this?
-    private static void exchange(int i, int j) {
+    private static void exchange(final int i,final int j) {
         int temp = numbers[i];
         numbers[i] = numbers[j];
         numbers[j] = temp;
     }
 
-    public static void main(String args[]) throws Exception {
+    public static void main(final String args[]) throws Exception {
         int[] numbers = {3, 2, 1, 6, 5, 4};
         System.out.println(Arrays.toString(numbers));
         sort(numbers);

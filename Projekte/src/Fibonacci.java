@@ -9,7 +9,7 @@ public class Fibonacci {
         if (n <= 0) {
             return 0;
         }
-        if ( n == 1) {
+        if (n == 1) {
             return 1;
         }
         return berechneRekursiv(n - 1) + berechneRekursiv(n - 2);
@@ -21,7 +21,7 @@ public class Fibonacci {
         if (n <= 0) {
             return 0;
         }
-        if ( n == 1) {
+        if (n == 1) {
             return 1;
         }
         long zahl1 = 0;
@@ -38,15 +38,15 @@ public class Fibonacci {
     public static void main(final String[] args) throws Exception {
 
         // negativ Test: n = -3 result = 0
-        System.out.println(berechneRekursiv(-3));
+        System.out.println(berechneRekursiv(-3) + ", " + berechneIterativ(-3));
         // 0 Test n = 0, result = 0
-        System.out.println(berechneRekursiv(0));
+        System.out.println(berechneRekursiv(0) + ", " + berechneIterativ(0));
         // 1 Test: n = 1, result = 1
-        System.out.println(berechneRekursiv(1));
+        System.out.println(berechneRekursiv(1) + ", " + berechneIterativ(1));
         // 2 Test: n = 2, result = 1
-        System.out.println(berechneRekursiv(2));
+        System.out.println(berechneRekursiv(2) + ", " + berechneIterativ(2));
         // 3 Test: n = 3, result = 2
-        System.out.println(berechneRekursiv(3));
+        System.out.println(berechneRekursiv(3) + ", " + berechneIterativ(3));
 
         // Aufgabe Test: n = 10, result = 55, Rekursiv, Iterativ
         System.out.println(berechneRekursiv(10) + ", " + berechneIterativ(10));
