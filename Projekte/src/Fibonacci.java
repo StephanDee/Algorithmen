@@ -36,8 +36,26 @@ public class Fibonacci {
 
 
     public static void main(final String[] args) throws Exception {
+
+        // negativ Test: n = -3 result = 0
+        System.out.println(berechneRekursiv(-3));
+        // 0 Test n = 0, result = 0
+        System.out.println(berechneRekursiv(0));
+        // 1 Test: n = 1, result = 1
+        System.out.println(berechneRekursiv(1));
+        // 2 Test: n = 2, result = 1
+        System.out.println(berechneRekursiv(2));
+        // 3 Test: n = 3, result = 2
+        System.out.println(berechneRekursiv(3));
+
+        // Aufgabe Test: n = 10, result = 55, Rekursiv, Iterativ
         System.out.println(berechneRekursiv(10) + ", " + berechneIterativ(10));
+
+        // Laufzeit Test
         System.out.println("iterativTest: " + berechneIterativ(40) + berechneIterativ(39) + berechneIterativ(38) + berechneIterativ(37) + berechneIterativ(36));
+        // Iterativ: berechneIterativ() wird einmal aufgerufen, die While-Schleife wird n mal durchlaufen, die Laufzeit hängt also nur linear von n ab.
         System.out.println("rekursivTest: " + berechneRekursiv(40) + berechneRekursiv(39) + berechneRekursiv(38) + berechneRekursiv(37) + berechneRekursiv(36));
+        // rekursiv: berechneRekursiv() hängt von der Anzahl der Aufrufe ab und wächst damit exponentiell in n.
+        // Ergebnis: Die Iterative Fumktion wird schneller durchlaufen als die Rekursive.
     }
 }
