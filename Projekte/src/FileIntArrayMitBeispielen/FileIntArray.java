@@ -10,8 +10,8 @@ public class FileIntArray {
 	 * Zeile 2 .. (n+1) : jeweils ein int-Wert
 	 * @return int-Array mit gelesenen Werten
 	 */
-	public static int[] FileToIntArray(String dat) {
-		int [] A = null;
+	public static Integer[] FileToIntArray(String dat) {
+		Integer [] A = null;
 		FileInputStream fis = null;
 		try {
 		  fis = new FileInputStream(dat);
@@ -28,7 +28,7 @@ public class FileIntArray {
 		      einZeile = br.readLine();
 		      int anz = new Integer(einZeile);
 
-		      A = new int[anz];
+		      A = new Integer[anz];
 		      for (int i = 0; i < anz; i++){
 		         einZeile = br.readLine();
 
