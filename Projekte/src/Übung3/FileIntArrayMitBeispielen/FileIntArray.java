@@ -1,4 +1,4 @@
-package FileIntArrayMitBeispielen;
+package Übung3.FileIntArrayMitBeispielen;
 
 import java.io.*;
 

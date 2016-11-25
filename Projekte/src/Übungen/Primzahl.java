@@ -1,14 +1,17 @@
+package Übungen;
+
 import java.security.InvalidAlgorithmParameterException;
 
 /**
  * Created by Stephan D on 17.10.2016.
  */
 public class Primzahl {
+
     /**
-     * Funktion zur Bestimmung, ob eine Zahl Primzahl ist
+     * Funktion zur Bestimmung, ob eine Zahl Übungen.Primzahl ist
      *
      * @param n die zu ueberpruefende Zahl
-     * @return true g.d.w. n eine Primzahl ist
+     * @return true g.d.w. n eine Übungen.Primzahl ist
      * @throws InvalidAlgorithmParameterException wenn n < 2
      */
     public static boolean isPrime(int n) throws InvalidAlgorithmParameterException {
@@ -22,35 +25,33 @@ public class Primzahl {
                 return false;
             div++;
         }
-
         return true;
     }
 
     /**
-     * Funktion, zum Test, ob isPrime bei Eingabe einer Primzahl das korrekte Ergebnis liefert
+     * Funktion, zum Test, ob isPrime bei Eingabe einer Übungen.Primzahl das korrekte Ergebnis liefert
      *
-     * @param zahl eine Primzahl
+     * @param zahl eine Übungen.Primzahl
      * @return true g.d.w. isPrime(zahl) das Ergebnis true liefert
      */
     public static boolean testPrimeExpected(int zahl) {
         // Testen von Primzahlen
         try {
             if (!isPrime(zahl)) {
-                System.out.println("Fehler bei " + zahl + "unerwartetes Ergebnis bei Primzahl");
+                System.out.println("Fehler bei " + zahl + "unerwartetes Ergebnis bei Übungen.Primzahl");
                 return false;
             }
-
         } catch (InvalidAlgorithmParameterException e) {
-            System.out.println("Fehler bei " + zahl + "unerwartete Ausnahme bei Primzahl");
+            System.out.println("Fehler bei " + zahl + "unerwartete Ausnahme bei Übungen.Primzahl");
             return false;
         }
         return true;
     }
 
     /**
-     * Funktion zum Test, ob isPrime bei Eingabe einer Nicht-Primzahl das korrekte Ergebnis liefert
+     * Funktion zum Test, ob isPrime bei Eingabe einer Nicht-Übungen.Primzahl das korrekte Ergebnis liefert
      *
-     * @param zahl eine Nicht-Primzahl
+     * @param zahl eine Nicht-Übungen.Primzahl
      * @return true g.d.w. isPrime(zahl) das Ergebnis false liefert
      */
     public static boolean testNotPrimeExpected(int zahl) {
@@ -60,7 +61,6 @@ public class Primzahl {
                 System.out.println("Fehler bei " + zahl + " unerwartetes Ergebnis bei Nichtprimzahl");
                 return false;
             }
-
         } catch (InvalidAlgorithmParameterException e) {
             System.out.println("Fehler bei " + zahl + " unerwartete Ausnahme bei Nichtprimzahl");
             return false;
@@ -93,19 +93,19 @@ public class Primzahl {
         int zahl = 0;
 
         // Testreihe Primzahlen
-        // Test kleinste Primzahl
+        // Test kleinste Übungen.Primzahl
         zahl = 2;
         if (!testPrimeExpected(zahl)) {
             noErr++;
         }
 
-        // Test mittlere Primzahl
+        // Test mittlere Übungen.Primzahl
         zahl = 17;
         if (!testPrimeExpected(zahl)) {
             noErr++;
         }
 
-        // Test große Primzahl
+        // Test große Übungen.Primzahl
         zahl = 8999;
         if (!testPrimeExpected(zahl)) {
             noErr++;
@@ -168,9 +168,7 @@ public class Primzahl {
         if (!testExceptionExpected(zahl)) {
             noErr++;
         }
-
         return noErr;
-
     }
 
     /**
@@ -181,7 +179,5 @@ public class Primzahl {
         if ((rc = testIsPrime()) > 0) {
             System.out.println("Test war nicht erfolgreich in " + rc + " Faellen!!!");
         }
-
     }
-
 }
