@@ -52,14 +52,14 @@ public class LinkedList<T> implements List<T> {
 
         ListElem<T> elem;
 
-            // Gehe alle Elemente durch
-            for (elem = head; elem != null; elem = elem.getPrev()) {
-                // Wenn der Wert eines Elements gefunden wurde, setze Verbindung zu vor und nachfolger
-                if (elem.value == value) {
-                    System.out.println("contains: " + elem.getValue());
-                    return value;
-                }
+        // Gehe alle Elemente durch
+        for (elem = head; elem != null; elem = elem.getPrev()) {
+            // Wenn der Wert eines Elements gefunden wurde, setze Verbindung zu vor und nachfolger
+            if (elem.value == value) {
+                System.out.println("contains: " + elem.getValue());
+                return value;
             }
+        }
         System.out.println("contains: Das Element \"" + value + "\" ist nicht enthalten.");
         return null;
     }
@@ -67,22 +67,22 @@ public class LinkedList<T> implements List<T> {
     @Override
     public int indexOf(T value) {
 
-        //TODO: index wird noch nicht richtig wiedergegeben
+        ListElem<T> elem;
+        int index = 0;
 
-        ListElem<T> elem = head;
-        int index = elem.getIndex();
-
-            // Gehe alle Elemente durch
-            for (elem = head; elem != null; elem = elem.getPrev()) {
-                // Wenn der Wert eines Elements gefunden wurde, setze Verbindung zu vor und nachfolger
-                if (elem.value == value) {
-                    System.out.println("index: " + elem.getIndex());
-                    return index;
-                }
+        // Gehe alle Elemente durch
+        for (elem = tail; elem != null; elem = elem.getNext()) {
+            // Wenn der Wert eines Elements gefunden wurde, setze Verbindung zu vor und nachfolger
+            if (elem.value == value) {
+                System.out.println("index: " + index);
+                return index;
+            } else {
+                index++;
             }
-            // Wenn der Wert keines der Werte eines Listenelements übereinstimmt, gebe null zurück
-            System.out.println("Value: \"" + value + "\" wurde nicht gefunden");
-            return -1;
+        }
+        // Wenn der Wert keines der Werte eines Listenelements übereinstimmt, gebe null zurück
+        System.out.println("indexOf: \"" + value + "\" wurde nicht gefunden");
+        return -1;
     }
 
     @Override
@@ -140,20 +140,12 @@ public class LinkedList<T> implements List<T> {
 
         ListElem<T> elem;
 
-        // Wenn der eingegebene Wert mit dem ersten Wert in Der Liste übereinstimmt
-        if (index == head.getIndex()) {
-            // Wähle ausgewähltes Listenelement und trenne alle Verbindungen zum nächsten Element
-            head = head.getPrev();
-            System.out.println("get: " + head.getIndex());
-        }
-        if (index != head.getIndex()) {
-            // Ansonsten gehe alle Elemente durch
-            for (elem = head; elem != null; elem = elem.getPrev()) {
-                // Wenn der Wert eines Elements gefunden wurde, setze Verbindung zu vor und nachfolger
-                if (elem.index == index) {
-                    System.out.println("get: " + elem.getValue());
-                    return elem.getValue();
-                }
+        // Gehe alle Elemente durch
+        for (elem = head; elem != null; elem = elem.getPrev()) {
+            // Wenn der Wert eines Elements gefunden wurde, setze Verbindung zu vor und nachfolger
+            if (elem.index == index) {
+                System.out.println("get: " + elem.getValue());
+                return elem.getValue();
             }
         }
         return null;
