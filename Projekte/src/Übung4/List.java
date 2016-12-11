@@ -40,7 +40,7 @@ public interface List<T> {
      * removes the first occurrence of the specified value from this list
      *
      * @param value - the value to be removed from this list, if present
-     * @return the removed value, it it is contained in the list;
+     * @return the removed value, it is contained in the list;
      * null, otherwise
      */
     public T remove(T value);

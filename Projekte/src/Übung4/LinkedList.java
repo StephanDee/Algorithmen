@@ -3,95 +3,192 @@ package Übung4;
 /**
  * Diese Klasse realisiert die Methoden des List Interface und die doppelt verkettete Liste.
  *
- * @author Stephan D, Leon R, Ersin Y
+ * @author Stephan Dünkel, Leon Rösler, Ersin Yildirim
  */
 public class LinkedList<T> implements List<T> {
 
-    private ListElem<T> head, tail;
-    private int size;
+    // Es ist das Erste Element in der Liste
+    private ListElem<T> head = null;
 
-    public LinkedList() {
-        head = new ListElem<>("Head");
-        tail = new ListElem<>("Tail");
-        head.setNext(tail);
-        tail.setPrev(head);
-        size = 0;
-    }
+    // Es ist das Letzte Element in der Liste
+    private ListElem<T> tail = null;
+
+    // Es gibt die Größe der Liste an
+    private int size = 0;
 
     @Override
     public void add(T value) {
-        ListElem<T> newElem = new ListElem<T>(value);
-        ListElem<T> tailElem = getTail();
-        tailElem.setNext(newElem);
-        newElem.setPrev(tailElem);
+
+        // Wenn die Liste noch Leer ist erstelle neues Listenelement, setze preview, next = null und tail = head
+        if (head == null) {
+            head = new ListElem<>(value, null, null);
+            tail = head;
+        } else {
+            // Ansonsten erstelle neues Listenelement am Ende der Liste,
+            // setze next = null, preview = head, folgendes neues Listenelement = head
+            head = new ListElem<>(value, null, head);
+            head.getPrev().setNext(head);
+        }
+        // Weiteres Listenelement wurde eingefügt, zähle hoch
         size++;
     }
 
-
     @Override
     public void add(int index, T value) {
-        ListElem<T> newElem = new ListElem<T>(index, value);
+        if (index < 0 || index > size) {
+            throw new IndexOutOfBoundsException();
+        }
 
+        //TODO: Methode schreiben
+
+        head = new ListElem<>(index, value);
+        head.getPrev().setNext(head);
+        head.getNext().setPrev(head);
         size++;
     }
 
     @Override
     public T contains(T value) {
-        return null;
+
+        //TODO: return value, anstatt syso()?, return null nicht erreichbar
+
+        ListElem<T> elem;
+
+        if (value == head.getValue()) {
+            head = head.getPrev();
+            System.out.println("contains" + head.getValue());
+        }
+        if (value != head.getValue()) {
+            // Ansonsten gehe alle Elemente durch
+            for (elem = head; elem != null; elem = elem.getPrev()) {
+                // Wenn der Wert eines Elements gefunden wurde, setze Verbindung zu vor und nachfolger
+                if (elem.value == value) {
+                    System.out.println("contains: " + elem.getValue());
+                }
+            }
+        } else {
+            // Wenn der Wert keines der Werte eines Listenelements übereinstimmt, gebe null zurück
+            System.out.println("contains: Null");
+            return null;
+        }
+        return value;
     }
 
     @Override
     public int indexOf(T value) {
-        return 0;
+
+        //TODO: Methode schreiben
+        ListElem<T> elem;
+        int index = 0;
+
+        if (value == head.getValue()) {
+            head = head.getPrev();
+            System.out.println("index: " + index);
+            return index;
+        }
+        if (value != head.getValue()) {
+            // Ansonsten gehe alle Elemente durch
+            for (elem = head; elem != null; elem = elem.getPrev()) {
+                // Wenn der Wert eines Elements gefunden wurde, setze Verbindung zu vor und nachfolger
+                if (elem.value == value) {
+                    // index = elem.getIndex();
+                    System.out.println("index: " + index);
+                    return index;
+                }
+            }
+            // Wenn der Wert keines der Werte eines Listenelements übereinstimmt, gebe null zurück
+            System.out.println("Value: \"" + value + "\" wurde nicht gefunden");
+            return -1;
+        }
+        return index;
     }
 
     @Override
     public T remove(T value) {
-        size--;
-        return null;
+
+        // Das zu löschende Element
+        ListElem<T> elem;
+
+        // Wenn der eingegebene Wert mit dem ersten Wert in Der Liste übereinstimmt
+        if (value == head.getValue()) {
+            // Wähle ausgewähltes Listenelement und trenne alle Verbindungen zum nächsten Element
+            head = head.getPrev();
+            head.getNext().setPrev(null);
+            head.setNext(null);
+
+            // Gefundenes Listenelement wurde gelöscht, zählt runter
+            size--;
+            return value;
+        }
+        if (value != head.getValue()) {
+            // Ansonsten gehe alle Elemente durch
+            for (elem = head; elem != null; elem = elem.getPrev()) {
+                // Wenn der Wert eines Elements gefunden wurde, setze Verbindung zu vor und nachfolger
+                if (elem.value == value) {
+                    elem.getPrev().setNext(elem.getNext());
+                    elem.getNext().setPrev(elem.getPrev());
+
+                    // Gefundenes Listenelement wurde gelöscht, zählt runter
+                    size--;
+                    return value;
+                }
+            }
+            // Wenn der Wert keines der Werte eines Listenelements übereinstimmt, gebe null zurück
+            System.out.println("Das zu löschendes Element: \"" + value + "\" wurde nicht gefunden.");
+            return null;
+        }
+        return value;
     }
 
     @Override
     public T remove(int index) {
-        size--;
+
+        //TODO: Methode schreiben, funktioniert noch nicht, was wird returnt?
+
         return null;
     }
 
     @Override
     public T get(int index) {
+        if (index < 0 || index >= size) {
+            throw new IndexOutOfBoundsException();
+        }
+
+        //TODO: funktioniert noch nicht
+
+        ListElem<T> elem;
+
+        // Wenn der eingegebene Wert mit dem ersten Wert in Der Liste übereinstimmt
+        if (index == head.getIndex()) {
+            // Wähle ausgewähltes Listenelement und trenne alle Verbindungen zum nächsten Element
+            head = head.getPrev();
+            System.out.println("get: " + head.getIndex());
+        }
+        if (index != head.getIndex()) {
+            // Ansonsten gehe alle Elemente durch
+            for (elem = head; elem != null; elem = elem.getPrev()) {
+                // Wenn der Wert eines Elements gefunden wurde, setze Verbindung zu vor und nachfolger
+                if (elem.index == index) {
+                    System.out.println("get: " + elem.getValue());
+                    return elem.getValue();
+                }
+            }
+        }
         return null;
     }
 
     @Override
     public int size() {
+        System.out.println("size: " + size);
         return size;
+    }
+
+    /**
+     * Gibt die Liste Vorwärts wieder.
+     */
+    public void writeListForward() {
+        for (ListElem<T> elem = tail; elem != null; elem = elem.getNext()) {
+            System.out.println(elem.getValue());
         }
-
-    public void writeList() {
-        ListElem<T> le = head;
-        while (le != null) {
-            System.out.println(le.getValue());
-            le = le.getNext();
-        }
-    }
-
-    public ListElem<T> getHead() {
-        return head;
-    }
-
-    public void setHead(ListElem<T> head) {
-        this.head = head;
-    }
-
-    public ListElem<T> getTail() {
-        ListElem<T> le = head;
-        while (le.getNext() != null) {
-            le = le.getNext();
-        }
-        return le;
-    }
-
-    public void setTail(ListElem<T> tail) {
-        this.tail = tail;
     }
 }
