@@ -9,7 +9,7 @@ package Übung4;
 public class Main {
 
     /**
-     * Die Mainmethode testet alle Testfälle einer doppelt verketteten Liste.
+     * Die Main-Methode testet zu überprüfende Testfälle einer doppelt verketteten Liste.
      *
      * @param args Befehlszeilen Argument
      */
@@ -27,7 +27,14 @@ public class Main {
         linkedList.add("Huhu");
 
         // add(int index, T value) Test
-        linkedList.add(2, "Buhuhu");
+        // Innerhalb der Liste
+        linkedList.add(2, "Morgen");
+        // Ausserhalb der Liste, auskommentieren zum Testen
+        // linkedList.size(); // Die aktuelle Länge der Liste zum überprüfen der Grenzfälle
+        // Echt kleiner size
+        // linkedList.add(-1, "Hohi");
+        // Echt größer size
+        // linkedList.add(8, "Hiho");
 
         //indexOf(T value) Test
         // enthalten
@@ -47,8 +54,14 @@ public class Main {
         // enthalten
         linkedList.get(0);
         linkedList.get(3);
-        // nicht enthalten, auskommentieren zum testen!
-        //linkedList.get(7);
+        // nicht enthalten, auskommentieren zum Testen!
+        // linkedList.size(); // Die aktuelle Länge der Liste zum überprüfen der Grenzfälle
+        // Echt kleiner size
+        // linkedList.get(-1);
+        // Gleich größter size
+        // linkedList.get(7);
+        // Echt größer size
+        //linkedList.get(8);
 
         // remove(T value) Test
         // enthalten
@@ -58,7 +71,7 @@ public class Main {
         linkedList.remove("Halloeschen");
 
         // remove(int index) Test
-        // linkedList.remove(1);
+        linkedList.remove(1);
 
         // Ausgabe der Liste Test
         linkedList.writeListForward();
