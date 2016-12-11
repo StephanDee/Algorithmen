@@ -116,7 +116,7 @@ public class LinkedList<T> implements List<T> {
                 }
             }
             // Wenn der Wert keines der Werte eines Listenelements übereinstimmt, gebe null zurück
-            System.out.println("Das zu löschendes Element: \"" + value + "\" wurde nicht gefunden.");
+            System.out.println("Das zu löschende Element: \"" + value + "\" wurde nicht gefunden.");
             return null;
         }
         return value;
@@ -136,18 +136,20 @@ public class LinkedList<T> implements List<T> {
             throw new IndexOutOfBoundsException();
         }
 
-        //TODO: funktioniert noch nicht
-
         ListElem<T> elem;
 
         // Gehe alle Elemente durch
-        for (elem = head; elem != null; elem = elem.getPrev()) {
+        for (elem = tail; elem != null; elem = elem.getNext()) {
             // Wenn der Wert eines Elements gefunden wurde, setze Verbindung zu vor und nachfolger
-            if (elem.index == index) {
+            if (index == elem.index) {
                 System.out.println("get: " + elem.getValue());
                 return elem.getValue();
+            } else {
+                index--;
             }
         }
+        // Wenn der Wert keines der Werte eines Listenelements übereinstimmt, gebe null zurück
+        System.out.println("get: \"" + index + "\" wurde nicht gefunden");
         return null;
     }
 
@@ -161,6 +163,7 @@ public class LinkedList<T> implements List<T> {
      * Gibt die Liste Vorwärts wieder.
      */
     public void writeListForward() {
+        System.out.println("Liste:");
         for (ListElem<T> elem = tail; elem != null; elem = elem.getNext()) {
             System.out.println(elem.getValue());
         }

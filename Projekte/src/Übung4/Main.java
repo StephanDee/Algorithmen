@@ -29,8 +29,6 @@ public class Main {
         //indexOf(T value) Test
         // enthalten
         linkedList.indexOf("0");
-        linkedList.indexOf("1");
-        linkedList.indexOf("2");
         linkedList.indexOf("3");
         // nicht enthalten
         linkedList.indexOf("Hallo");
@@ -41,11 +39,12 @@ public class Main {
         //contains(T value) Test
         // enthalten
         linkedList.contains("0");
-        linkedList.contains("1");
+        linkedList.contains("2");
         // nicht enthalten
         linkedList.contains("Moin");
 
         //get(int index) Test
+        linkedList.get(0);
         linkedList.get(3);
 
         // remove(T value) Test
@@ -53,7 +52,7 @@ public class Main {
         linkedList.remove("Hi");
         linkedList.remove("Huhu");
         // nicht enthalten
-        linkedList.remove("pete");
+        linkedList.remove("Halloeschen");
 
         // remove(int index) Test
         // linkedList.remove(1);
