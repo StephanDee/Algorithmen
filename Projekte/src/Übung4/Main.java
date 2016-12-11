@@ -26,15 +26,15 @@ public class Main {
         linkedList.add("Hi");
         linkedList.add("Huhu");
 
+        // add(int index, T value) Test
+        linkedList.add(2, "Buhuhu");
+
         //indexOf(T value) Test
         // enthalten
         linkedList.indexOf("0");
         linkedList.indexOf("3");
         // nicht enthalten
         linkedList.indexOf("Hallo");
-
-        // add(int index, T value) Test
-        // linkedList.add(2, "4");
 
         //contains(T value) Test
         // enthalten
@@ -44,8 +44,11 @@ public class Main {
         linkedList.contains("Moin");
 
         //get(int index) Test
+        // enthalten
         linkedList.get(0);
         linkedList.get(3);
+        // nicht enthalten, auskommentieren zum testen!
+        //linkedList.get(7);
 
         // remove(T value) Test
         // enthalten

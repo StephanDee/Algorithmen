@@ -28,8 +28,7 @@ public class ListElem<T> {
      * @param index index eines Elements
      * @param value value eines Elements
      */
-    public ListElem(int index, T value) {
-        this.index = index;
+    public ListElem(T value) {
         this.value = value;
     }
 

@@ -36,16 +36,45 @@ public class LinkedList<T> implements List<T> {
     @Override
     public void add(int index, T value) {
         if (index < 0 || index > size) {
-            throw new IndexOutOfBoundsException();
+            throw new IndexOutOfBoundsException("Der Index: \"" + index + "\" ist ausserhalb der Liste.");
         }
 
         //TODO: Methode schreiben
 
-        head = new ListElem<>(index, value);
-        head.getPrev().setNext(head);
-        head.getNext().setPrev(head);
+        ListElem<T> curElem = head;
+        int indexCounter = 0;
+
+        // This will be used to mark the node before the requested index node
+        int targetIndex = index - 1;
+
+        // This is the new node to be inserted in the list
+        ListElem<T> newElem = new ListElem<>(value);
+
+        if (curElem != null) {
+            while (indexCounter < targetIndex && curElem.getNext() != null) {
+                indexCounter++;
+                curElem = curElem.getNext();
+            }
+            if (indexCounter == targetIndex) {
+                newElem.setNext(curElem.getNext());
+                curElem.setNext(newElem);
+            } else if (index == 0) {
+                newElem.setNext(head);
+                head = newElem;
+            }
+        } else if (index == 0) {
+            head = newElem;
+        }
         size++;
     }
+
+//        ListElem<T> elem;
+//                head = new ListElem<>(index, value);
+//                if (head.getNext() != null) {
+//                    head.getNext().setPrev(head);
+//                }
+//                if (head.getPrev() != null) {
+//                    head.getPrev().setNext(head);
 
     @Override
     public T contains(T value) {
@@ -74,7 +103,7 @@ public class LinkedList<T> implements List<T> {
         for (elem = tail; elem != null; elem = elem.getNext()) {
             // Wenn der Wert eines Elements gefunden wurde, setze Verbindung zu vor und nachfolger
             if (elem.value == value) {
-                System.out.println("index: " + index);
+                System.out.println("indexOf: " + index);
                 return index;
             } else {
                 index++;
@@ -115,25 +144,23 @@ public class LinkedList<T> implements List<T> {
                     return value;
                 }
             }
-            // Wenn der Wert keines der Werte eines Listenelements übereinstimmt, gebe null zurück
-            System.out.println("Das zu löschende Element: \"" + value + "\" wurde nicht gefunden.");
-            return null;
         }
-        return value;
+        // Wenn der Wert keines der Werte eines Listenelements übereinstimmt, gebe null zurück
+        System.out.println("remove: Das zu löschende Element: \"" + value + "\" wurde nicht gefunden.");
+        return null;
     }
 
     @Override
     public T remove(int index) {
 
         //TODO: Methode schreiben, funktioniert noch nicht, was wird returnt?
-
         return null;
     }
 
     @Override
     public T get(int index) {
         if (index < 0 || index >= size) {
-            throw new IndexOutOfBoundsException();
+            throw new IndexOutOfBoundsException("Der Index: \"" + index + "\" ist ausserhalb der Liste.");
         }
 
         ListElem<T> elem;
@@ -155,7 +182,7 @@ public class LinkedList<T> implements List<T> {
 
     @Override
     public int size() {
-        System.out.println("size: " + size);
+        System.out.println("size: Die Anzahl der Elemente beträgt: " + size);
         return size;
     }
 
@@ -163,7 +190,7 @@ public class LinkedList<T> implements List<T> {
      * Gibt die Liste Vorwärts wieder.
      */
     public void writeListForward() {
-        System.out.println("Liste:");
+        System.out.println("Die Liste wird vorwärts wiedergegeben:");
         for (ListElem<T> elem = tail; elem != null; elem = elem.getNext()) {
             System.out.println(elem.getValue());
         }
