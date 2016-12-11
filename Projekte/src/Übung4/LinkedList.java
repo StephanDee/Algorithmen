@@ -76,7 +76,7 @@ public class LinkedList<T> implements List<T> {
     @Override
     public int indexOf(T value) {
 
-        //TODO: Methode schreiben
+        //TODO: index wird noch nicht richtig wiedergegeben
         ListElem<T> elem;
         int index = 0;
 
