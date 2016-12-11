@@ -15,8 +15,8 @@ public class ListElem<T> {
      * Der Konstruktor zur Initialisierung eines Listenelements mit 3 Parametern.
      *
      * @param value Der Wert eines Listenelements
-     * @param next Die Verbindung zum nächsten Listenelement
-     * @param prev Die Verbindung zum vorrigen Listenelement
+     * @param next  Die Verbindung zum nächsten Listenelement
+     * @param prev  Die Verbindung zum vorrigen Listenelement
      */
     public ListElem(T value, ListElem<T> next, ListElem<T> prev) {
         this.value = value;
@@ -51,9 +51,6 @@ public class ListElem<T> {
         this.prev = prev;
     }
 
-    public void setValue(T element) { value = element; }
-    public void setIndex(int element) { index = element; }
-
     /**
      * Diese Methode holt sich das nächste Listenelement.
      *
@@ -79,10 +76,6 @@ public class ListElem<T> {
      */
     public T getValue() {
         return value;
-    }
-
-    public int getIndex() {
-        return index;
     }
 
 }
