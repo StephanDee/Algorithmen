@@ -50,13 +50,12 @@ public class LinkedList<T> implements List<T> {
     @Override
     public T contains(T value) {
 
-        //TODO: return value, anstatt syso()?, return null nicht erreichbar
-
         ListElem<T> elem;
 
         if (value == head.getValue()) {
             head = head.getPrev();
             System.out.println("contains" + head.getValue());
+            return value;
         }
         if (value != head.getValue()) {
             // Ansonsten gehe alle Elemente durch
@@ -64,12 +63,12 @@ public class LinkedList<T> implements List<T> {
                 // Wenn der Wert eines Elements gefunden wurde, setze Verbindung zu vor und nachfolger
                 if (elem.value == value) {
                     System.out.println("contains: " + elem.getValue());
+                    return value;
                 }
             }
-        } else {
-            // Wenn der Wert keines der Werte eines Listenelements übereinstimmt, gebe null zurück
-            System.out.println("contains: Null");
-            return null;
+                // Wenn der Wert keines der Werte eines Listenelements übereinstimmt, gebe null zurück
+                System.out.println("contains: Das Element \"" + value + "\" ist nicht enthalten.");
+                return null;
         }
         return value;
     }
