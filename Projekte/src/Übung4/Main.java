@@ -15,51 +15,53 @@ public class Main {
      */
     public static void main(String[] args) {
 
-        // java LinkedList
-        // java.util.LinkedList<String> linkedList2 = new java.util.LinkedList<>();
-        // linkedList2.add("hi");
-        // linkedList2.remove(0);
-
-        // eigene LinkedList
-        Übung4.LinkedList<String> linkedList = new LinkedList<>();
+        // initialisierung der LinkedList
+        LinkedList<String> linkedList = new LinkedList<>();
 
         // add(T value) Test
         linkedList.add("0");
         linkedList.add("1");
         linkedList.add("2");
         linkedList.add("3");
-        linkedList.add("muh");
-        linkedList.add("Crazy");
+        linkedList.add("Hi");
+        linkedList.add("Huhu");
 
         //indexOf(T value) Test
+        // enthalten
         linkedList.indexOf("0");
+        linkedList.indexOf("1");
         linkedList.indexOf("2");
-        linkedList.indexOf("asdqwe");
+        linkedList.indexOf("3");
+        // nicht enthalten
+        linkedList.indexOf("Hallo");
 
         // add(int index, T value) Test
         // linkedList.add(2, "4");
 
         //contains(T value) Test
+        // enthalten
         linkedList.contains("0");
         linkedList.contains("1");
+        // nicht enthalten
         linkedList.contains("Moin");
 
         //get(int index) Test
         linkedList.get(3);
 
         // remove(T value) Test
-        linkedList.remove("muh");
-        linkedList.remove("Crazy");
+        // enthalten
+        linkedList.remove("Hi");
+        linkedList.remove("Huhu");
+        // nicht enthalten
         linkedList.remove("pete");
 
         // remove(int index) Test
-        linkedList.remove(1);
+        // linkedList.remove(1);
 
         // Ausgabe der Liste Test
         linkedList.writeListForward();
 
         // size Test
-        //System.out.println("size: " + linkedList.size());
         linkedList.size();
     }
 }

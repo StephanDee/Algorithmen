@@ -52,13 +52,7 @@ public class LinkedList<T> implements List<T> {
 
         ListElem<T> elem;
 
-        if (value == head.getValue()) {
-            head = head.getPrev();
-            System.out.println("contains" + head.getValue());
-            return value;
-        }
-        if (value != head.getValue()) {
-            // Ansonsten gehe alle Elemente durch
+            // Gehe alle Elemente durch
             for (elem = head; elem != null; elem = elem.getPrev()) {
                 // Wenn der Wert eines Elements gefunden wurde, setze Verbindung zu vor und nachfolger
                 if (elem.value == value) {
@@ -66,40 +60,29 @@ public class LinkedList<T> implements List<T> {
                     return value;
                 }
             }
-                // Wenn der Wert keines der Werte eines Listenelements übereinstimmt, gebe null zurück
-                System.out.println("contains: Das Element \"" + value + "\" ist nicht enthalten.");
-                return null;
-        }
-        return value;
+        System.out.println("contains: Das Element \"" + value + "\" ist nicht enthalten.");
+        return null;
     }
 
     @Override
     public int indexOf(T value) {
 
         //TODO: index wird noch nicht richtig wiedergegeben
-        ListElem<T> elem;
-        int index = 0;
 
-        if (value == head.getValue()) {
-            head = head.getPrev();
-            System.out.println("index: " + index);
-            return index;
-        }
-        if (value != head.getValue()) {
-            // Ansonsten gehe alle Elemente durch
+        ListElem<T> elem = head;
+        int index = elem.getIndex();
+
+            // Gehe alle Elemente durch
             for (elem = head; elem != null; elem = elem.getPrev()) {
                 // Wenn der Wert eines Elements gefunden wurde, setze Verbindung zu vor und nachfolger
                 if (elem.value == value) {
-                    // index = elem.getIndex();
-                    System.out.println("index: " + index);
+                    System.out.println("index: " + elem.getIndex());
                     return index;
                 }
             }
             // Wenn der Wert keines der Werte eines Listenelements übereinstimmt, gebe null zurück
             System.out.println("Value: \"" + value + "\" wurde nicht gefunden");
             return -1;
-        }
-        return index;
     }
 
     @Override

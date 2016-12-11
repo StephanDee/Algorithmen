@@ -55,6 +55,8 @@ public class ListElem<T> {
      */
     public void setValue(T element) { value = element; }
 
+    public void setIndex(int element) { index = element; }
+
     /**
      *
      * @return next Element
