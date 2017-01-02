@@ -1,5 +1,8 @@
 package Übung4;
 
+/**
+ * @author Stephan Dünkel, Leon Rösler, Ersin Yildirim
+ */
 public interface List<T> {
 
     /**
@@ -71,4 +74,5 @@ public interface List<T> {
      * @return the number of values in this list
      */
     public int size();
+
 }

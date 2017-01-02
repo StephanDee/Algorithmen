@@ -1,82 +1,129 @@
 package Übung4;
 
 /**
- * Diese Klasse demonstriert die doppelt verkettete Liste.
- * Alle Testfälle sind hier zu finden.
- *
  * @author Stephan Dünkel, Leon Rösler, Ersin Yildirim
  */
 public class Main {
 
-    /**
-     * Die Main-Methode testet zu überprüfende Testfälle einer doppelt verketteten Liste.
-     *
-     * @param args Befehlszeilen Argument
-     */
+
     public static void main(String[] args) {
 
-        // initialisierung der LinkedList
-        LinkedList<String> linkedList = new LinkedList<>();
 
+        // Neue LinkedList zum bearbeiten
+        LinkedList<String> linkedList = new LinkedList<>();
+        System.out.println("Neue leere Liste erstellt");
+        System.out.println("__________________________________________________ \n");
+
+
+        //@TODO: ChECK
         // add(T value) Test
+        System.out.println("add(T value) Testen: ");
         linkedList.add("0");
         linkedList.add("1");
-        linkedList.add("2");
         linkedList.add("3");
-        linkedList.add("Hi");
-        linkedList.add("Huhu");
+        linkedList.add("4");
+        linkedList.add("muh");
+        linkedList.add("Crazy");
+        System.out.println( linkedList.size() + " Elemente eingefügt \n");
+        System.out.println( "aktuelle Liste: ");
+        linkedList.writeList();
+        System.out.println("__________________________________________________ \n");
 
+
+        //@TODO: CHECK
         // add(int index, T value) Test
-        // Innerhalb der Liste
-        linkedList.add(2, "Morgen");
-        // Ausserhalb der Liste, auskommentieren zum Testen
-        // linkedList.size(); // Die aktuelle Länge der Liste zum überprüfen der Grenzfälle
-        // Echt kleiner size
-        // linkedList.add(-1, "Hohi");
-        // Echt größer size
-        // linkedList.add(8, "Hiho");
+        System.out.println("add(int index, T value) Testen: ");
+        linkedList.add(2, "2");
+        //linkedList.add(22, "22");
 
-        //indexOf(T value) Test
-        // enthalten
-        linkedList.indexOf("0");
-        linkedList.indexOf("3");
-        // nicht enthalten
-        linkedList.indexOf("Hallo");
+        System.out.println("Versucht Element '2' an Index 2 und Element '22' an Index 22 einzufügen... \n");
+        System.out.println( "aktuelle Liste: ");
+        linkedList.writeList();
+        System.out.println("__________________________________________________ \n");
 
+
+        //@TODO: CHECK
         //contains(T value) Test
-        // enthalten
+        System.out.println("contains(T value) Testen: ");
         linkedList.contains("0");
-        linkedList.contains("2");
-        // nicht enthalten
+        linkedList.contains("1");
         linkedList.contains("Moin");
 
+        System.out.println("Überprüft, ob die obigen Elemente in der Liste vorhanden sind... \n");
+        System.out.println( "aktuelle Liste: ");
+        linkedList.writeList();
+        System.out.println("__________________________________________________ \n");
+
+
+        //@TODO: CHECK
         //get(int index) Test
-        // enthalten
-        linkedList.get(0);
+        System.out.println("get(int index) Testen: ");
         linkedList.get(3);
-        // nicht enthalten, auskommentieren zum Testen!
-        // linkedList.size(); // Die aktuelle Länge der Liste zum überprüfen der Grenzfälle
-        // Echt kleiner size
-        // linkedList.get(-1);
-        // Gleich größter size
-        // linkedList.get(7);
-        // Echt größer size
-        //linkedList.get(8);
+        //linkedList.get(11);
 
+        System.out.println("Element am Index 3 und 11 gesucht... \n");
+        System.out.println( "aktuelle Liste: ");
+        linkedList.writeList();
+        System.out.println("__________________________________________________ \n");
+
+
+        //@TODO: CHECK
         // remove(T value) Test
-        // enthalten
-        linkedList.remove("Hi");
-        linkedList.remove("Huhu");
-        // nicht enthalten
-        linkedList.remove("Halloeschen");
+        System.out.println("remove(T value) Testen: ");
+        linkedList.remove("2");
+        linkedList.remove("pete");
 
+        System.out.println("Versucht die Elemente mit Value '2' und 'pete' zu entfernen... \n");
+        System.out.println( "aktuelle Liste: ");
+        linkedList.writeList();
+        System.out.println("__________________________________________________ \n");
+
+
+        //@TODO: CHECK
         // remove(int index) Test
-        linkedList.remove(1);
+        System.out.println("remove(int index) Testen: ");
+        linkedList.remove(2);
+        //linkedList.remove(10);
 
-        // Ausgabe der Liste Test
-        linkedList.writeListForward();
 
+        System.out.println("Versucht die Elemente an dem Index 2 und 10 zu entfernen... \n");
+        System.out.println("aktuelle Liste: ");
+        linkedList.writeList();
+        System.out.println("__________________________________________________ \n");
+
+
+        //Liste auffüllen
+        System.out.println("Liste wieder auffüllen...");
+        linkedList.add("11");
+        linkedList.add("22");
+        linkedList.add("33");
+        System.out.println( "aktuelle Liste: ");
+        linkedList.writeList();
+        System.out.println("__________________________________________________ \n");
+
+
+        //@TODO: CHECK
+        //indexOf (T value) Test
+        System.out.println("indexOf(T value) Testen: ");
+        linkedList.indexOf("22");
+        linkedList.indexOf("44");
+
+        System.out.println("Versucht den Index der Elemente mit dem Value '22' und '44' zu bestimmmen... \n");
+        System.out.println("aktuelle Liste: ");
+        linkedList.writeList();
+        System.out.println("__________________________________________________ \n");
+
+
+        //@TODO: CHECK
         // size Test
-        linkedList.size();
+        System.out.println("size()m Testen: ");
+        System.out.println("size: " + linkedList.size() + "\n");
+
+        System.out.println( "aktuelle Liste: ");
+        linkedList.writeList();
+        System.out.println("__________________________________________________ \n");
+        System.out.println("__________________________________________________ \n");
+
     }
+
 }
